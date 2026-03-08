@@ -12,12 +12,12 @@ const password =passwordInput.value;
 
 if(username === "admin" && password === "admin123"){
 
-localStorage.setItem("login","true")
+localStorage.setItem("login","true");
 window.location.href = "index.html"
 
 }else{
 
-alert("Wrong credentials")
+alert("Wrong credentials");
 
 }
 
