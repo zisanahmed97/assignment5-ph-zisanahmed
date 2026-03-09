@@ -13,7 +13,7 @@ const password =passwordInput.value;
 if(username === "admin" && password === "admin123"){
 
 localStorage.setItem("login","true");
-window.location.href = "index.html"
+window.location.href = "home.html"
 
 }else{
 
