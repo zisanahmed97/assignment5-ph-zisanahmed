@@ -39,7 +39,7 @@ card.innerHTML = `
 
 <div class="flex justify-between items-center mb-2">
 
-<span class="text-green-500 text-xl">✔</span>
+<span class="text-green-500 text-xl"><img src="./assets/Open-Status.png" alt=""></span>
 
 <span class="text-xs px-3 py-1 rounded-full
 ${issue.priority === "high"
@@ -83,6 +83,71 @@ HELP WANTED
 </div>
 
 `
+
+
+card.onclick = function(){
+openModal(issue)
+}
+
+container.appendChild(card)
+
+})
+
+}
+
+
+
+function filterIssues(status){
+
+const filtered = allIssues.filter(issue => issue.status === status)
+
+displayIssues(filtered)
+
+document.getElementById("issueCount").innerText = filtered.length
+
+}
+
+
+async function searchIssue(){
+
+const text = document.getElementById("searchInput").value
+
+const res = await fetch(
+`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`
+)
+const data = await res.json()
+
+displayIssues(data.data)
+
+document.getElementById("issueCount").innerText = data.data.length
+
+}
+
+
+
+function openModal(issue){
+
+document.getElementById("issueModal").classList.remove("hidden")
+
+document.getElementById("modalTitle").innerText = issue.title
+
+document.getElementById("modalDescription").innerText = issue.description
+
+document.getElementById("modalAuthor").innerText = "Author: " + issue.author
+
+document.getElementById("modalCategory").innerText = "Category: " + issue.category
+
+document.getElementById("modalPriority").innerText = "Priority: " + issue.priority
+
+}
+
+
+
+function closeModal(){
+
+document.getElementById("issueModal").classList.add("hidden")
+
+}
 
 
 

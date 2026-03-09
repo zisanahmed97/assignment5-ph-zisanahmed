@@ -52,9 +52,9 @@ placeholder="Search issues..">
 
 <div class="flex gap-4 p-4 bg-white w-[1200px] mx-auto my-6 ">
 
-<button class="btn btn-soft btn-primary w-[100px]">All</button>
-<button class="btn btn-soft btn-primary w-[100px]">Open</button>
-<button class="btn btn-soft btn-primary w-[100px]">Closed</button>
+<button onclick="loadIssues()" class="btn btn-soft btn-primary w-[100px]">All</button>
+<button onclick="filterIssues()" class="btn btn-soft btn-primary w-[100px]">Open</button>
+<button onclick="filterIssues()" class="btn btn-soft btn-primary w-[100px]">Closed</button>
 
 </div>
 
@@ -106,7 +106,7 @@ class="grid grid-cols-4 gap-6 p-6 w-[1200px] mx-auto">
 </div>
 
 <div id="issueModal"
-class=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
 
 <div class="bg-white p-6 rounded w-[400px]">
 
@@ -130,6 +130,8 @@ Close
 </div>
 
 </div>
+
+
 
 
 
